@@ -16,23 +16,55 @@ A single integer n (1 ≤ n ≤ 45) – number of steps.
 A single integer – number of distinct ways to reach step n.
 
 ## Algorithm
-1. 
-2. 
-3. 
-4.  
-5.   
+1.Start the program and read the integer n (number of steps) from the user.
+
+2.If n equals 1, return 1; if n equals 2, return 2.
+
+3.Initialize two variables: first = 1 and second = 2 to represent ways to reach steps 1 and 2.
+
+4.Use a loop from 3 to n, updating current = first + second, then shift values (first = second, second = current).
+
+5.After the loop ends, print the value of current as the total number of ways the frog can reach step n. 
 
 ## Program:
 ```
 /*
-Program to implement Reverse a String
-Developed by: 
-Register Number:  
+Developed by: Thanika sree B
+Register Number: 212222100055
 */
+import java.util.Scanner;
+
+public class FrogJump {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        scanner.close();
+
+        System.out.println(countWays(n));
+    }
+
+    public static int countWays(int n) {
+        if (n == 1) return 1;
+        if (n == 2) return 2;
+
+        int first = 1; // ways to reach step 1
+        int second = 2; // ways to reach step 2
+        int current = 0;
+
+        for (int i = 3; i <= n; i++) {
+            current = first + second; // ways to reach current step
+            first = second;
+            second = current;
+        }
+
+        return current;
+    }
+}
 ```
 
 ## Output:
 
+<img width="354" height="194" alt="image" src="https://github.com/user-attachments/assets/5e04deeb-2293-463a-b3a1-d6b2d6fe4f74" />
 
 
 ## Result:
